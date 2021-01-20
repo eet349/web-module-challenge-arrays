@@ -128,7 +128,6 @@ Use the removeFlavorByName function below to do the following:
 
 function removeFlavorByName(flavorArr, flavorToRemove) {
 	const removeInd = flavorArr.findIndex((elm) => elm === flavorToRemove);
-	console.log('removeInd: ', removeInd);
 	flavorArr.splice(removeInd, 1);
 	return flavorArr;
 }
@@ -176,26 +175,50 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.
 */
 
-function getAverageWordLength(/*code here*/) {
-	/*code here*/
+function getAverageWordLength(flavorArr) {
+	let wordCounter = 0;
+	const LENGTH = flavorArr.length;
+
+	for (let i = 0; i < LENGTH; i++) {
+		wordCounter += flavorArr[i].split(' ').length;
+	}
+
+	return wordCounter / LENGTH;
 }
+
+console.log('stretch #1: ', getAverageWordLength(originalFlavors));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors
 from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors and store it in an array called randomFlavors.
 
 Use the getRandomFlavors function and new arrays below to do the following:
-    1. Receive the four arrays with all the differnet flavors (originalFlavors is above, the others are below)
+    1. Receive the four arrays with all the different flavors (originalFlavors is above, the others are below)
     2. Randomly pick flavors from all four arrays
     3. Return a new array called randomFlavors that has a lenght of 31
 
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
-function getRandomFlavors(/*code here*/) {
-	/*code here*/
+function getRandomFlavors(
+	flavorsArr_1,
+	flavorsArr_2,
+	flavorsArr_3,
+	flavorsArr_4
+) {
+	const randomFlavors = [];
+	let allFlavors = [
+		...flavorsArr_1,
+		...flavorsArr_2,
+		...flavorsArr_3,
+		...flavorsArr_4,
+	];
+	for (let i = 0; i < 31; i++) {
+		let randIndex = Math.round(Math.random() * 100) % 31;
+		randomFlavors.push(allFlavors.splice(randIndex, 1));
+	}
+	return randomFlavors;
 }
-
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
 	'Date night',
@@ -276,6 +299,15 @@ const regionalFlavors = [
 	'Chocolate Chocolate Chip Cheesecake',
 	"Caramel 'n' Cookies",
 ];
+console.log(
+	'stretch #2: ',
+	getRandomFlavors(
+		originalFlavors,
+		newFlavors,
+		seasonalFlavors,
+		regionalFlavors
+	)
+);
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
 function foo() {
