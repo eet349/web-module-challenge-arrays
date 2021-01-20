@@ -45,8 +45,8 @@ Use the copy function below to do the following:
     2. Return a copy of the received array
 */
 
-function copy(/*your code here*/) {
-	/*your code here*/
+function copy(arrayToCopy) {
+	return [...arrayToCopy];
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -59,8 +59,8 @@ Confirm that an array is exactly 31 flavors. Your function should accept:
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
 
-function is31Flavors(/*your code here*/) {
-	/*your code here*/
+function is31Flavors(arrayToCheck) {
+	return arrayToCheck.length === 31;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -75,8 +75,9 @@ Use the addFlavor function below to do the following:
     For example: addFlavor("Rainbow Sherbert", originalFlavors) should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-function addFlavor(/*your code here*/) {
-	/*your code here*/
+function addFlavor(flavorArr, flavorToAddStr) {
+	//the test file has the params like this, but the example has them swapped
+	return [flavorToAddStr, ...flavorArr];
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -90,8 +91,9 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/) {
-	/*your code here*/
+function removeLastFlavor(flavorArr) {
+	flavorArr.pop();
+	return flavorArr;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -105,8 +107,8 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/) {
-	/*your code here*/
+function getFlavorByIndex(flavorArr, flavorIndex) {
+	return flavorArr[flavorIndex];
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -124,8 +126,11 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/) {
-	/*your code here*/
+function removeFlavorByName(flavorArr, flavorToRemove) {
+	const removeInd = flavorArr.findIndex((elm) => elm === flavorToRemove);
+	console.log('removeInd: ', removeInd);
+	flavorArr.splice(removeInd, 1);
+	return flavorArr;
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
